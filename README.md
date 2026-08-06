@@ -36,7 +36,3 @@ It’s designed to combat the loneliness epidemic by offering genuine, platonic,
 | **CSS** | Pure custom styles – no frameworks |
 | **GitHub Actions** | CI/CD pipeline for automatic deployments |
 | **Formspree** | Static form backend (free tier) |
-
----
-
-## 📂 Project Structure
