@@ -19,16 +19,15 @@ function spawnGlitter() {
 }
 spawnGlitter();
 
-// ===== FORMPREE HANDLER (with client-side feedback) =====
+// ===== FORM HANDLER (with Pop-up Modal) =====
 const form = document.getElementById('enquiry-form');
-const statusDiv = document.getElementById('form-status');
+const modal = document.getElementById('success-modal');
+const closeBtns = document.querySelectorAll('#close-modal-btn, #close-modal-btn-bottom');
 
 if (form) {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const data = new FormData(form);
-    statusDiv.innerHTML = '⏳ Sending...';
-    statusDiv.style.color = '#333';
 
     try {
       const response = await fetch(form.action, {
@@ -37,15 +36,28 @@ if (form) {
         headers: { 'Accept': 'application/json' },
       });
       if (response.ok) {
-        statusDiv.innerHTML = '✅ Your enquiry was sent! We’ll be in touch soon. ✨';
-        statusDiv.style.color = 'var(--lime)';
-        form.reset();
+        // Show the modal
+        modal.style.display = 'flex';
+        form.reset(); // Clear the form
       } else {
         throw new Error('Server error');
       }
     } catch (err) {
-      statusDiv.innerHTML = '❌ Oops! Something went wrong. Please try again or email us directly.';
-      statusDiv.style.color = 'var(--pink)';
+      alert('❌ Oops! Something went wrong. Please try again or email us directly.');
     }
   });
 }
+
+// ===== CLOSE MODAL =====
+closeBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+});
+
+// Click outside the window to close (optional, but nice UX)
+modal.addEventListener('click', (e) => {
+  if (e.target === modal) {
+    modal.style.display = 'none';
+  }
+});

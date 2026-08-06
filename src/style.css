@@ -256,6 +256,29 @@ form input:focus, form select:focus, form textarea:focus {
   margin: 0.2rem 0;
 }
 
+/* ===== MODAL OVERLAY ===== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  backdrop-filter: blur(4px);
+  padding: 1rem;
+}
+.modal-window {
+  max-width: 480px;
+  width: 100%;
+  animation: floatSphere 0.4s ease-out;
+  box-shadow: 0 0 40px rgba(255, 123, 181, 0.4);
+}
+.modal-window .window-body {
+  background: #fefefe;
+  text-align: center;
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 700px) {
   .pixel-title { font-size: 1.2rem; }
