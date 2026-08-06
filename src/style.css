@@ -1,0 +1,312 @@
+/* ===== RESET & BASE ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --pink: #ff7bb5;
+  --lime: #d9fb5f;
+  --white: #fefefe;
+  --dark: #1a1a1a;
+  --window-bg: #e6e6e6;
+  --title-bg: linear-gradient(90deg, #b0b0b0, #e0e0e0, #b0b0b0);
+  --border-outset: 3px outset #ffffff;
+  --border-inset: 3px inset #888888;
+  --font-pixel: 'Press Start 2P', monospace;
+  --font-terminal: 'VT323', monospace;
+}
+
+body {
+  background: var(--dark);
+  font-family: var(--font-terminal);
+  font-size: 1.1rem;
+  color: var(--dark);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 2rem 1rem;
+  line-height: 1.6;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ===== TV OVERLAY (scanlines + vignette) ===== */
+#tv-overlay {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0,0,0,0.03) 0px,
+    rgba(0,0,0,0.03) 2px,
+    transparent 2px,
+    transparent 4px
+  );
+  box-shadow: inset 0 0 150px rgba(0,0,0,0.6);
+}
+
+/* ===== GLITTER (pure CSS) ===== */
+#glitter-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+  overflow: hidden;
+}
+.glitter-piece {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: var(--white);
+  opacity: 0;
+  clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);
+  animation: twinkle 3s infinite alternate;
+}
+@keyframes twinkle {
+  0% { opacity: 0; transform: scale(0.5) rotate(0deg); }
+  100% { opacity: 0.9; transform: scale(1.2) rotate(45deg); }
+}
+
+/* ===== WINDOW (Y2K skeuomorphism) ===== */
+.window {
+  background: var(--window-bg);
+  border: var(--border-outset);
+  border-radius: 8px 8px 4px 4px;
+  margin-bottom: 2.5rem;
+  box-shadow: 8px 8px 0px rgba(0,0,0,0.3);
+  width: 100%;
+  max-width: 1000px;
+}
+
+.title-bar {
+  background: var(--title-bg);
+  padding: 0.4rem 0.8rem;
+  border-bottom: 2px solid #888;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-pixel);
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 0 #fff;
+  cursor: default;
+}
+.window-controls span {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  background: #c0c0c0;
+  border: var(--border-outset);
+  text-align: center;
+  line-height: 22px;
+  font-size: 0.9rem;
+  margin-left: 4px;
+}
+.window-controls .close { background: #ff7bb5; color: #fff; }
+
+.window-body {
+  padding: 1.8rem 2rem;
+  background: var(--white);
+  border: var(--border-inset);
+  border-radius: 0 0 4px 4px;
+}
+
+/* ===== ZEBRA & CHEETAH MIX (abstract background) ===== */
+.service-card .window-body {
+  background-image: 
+    repeating-linear-gradient(45deg, #fff 0px, #fff 10px, #e0e0e0 10px, #e0e0e0 12px),
+    repeating-linear-gradient(-45deg, #d9fb5f33 0px, #d9fb5f33 20px, #ff7bb533 20px, #ff7bb533 30px);
+  background-blend-mode: overlay;
+}
+
+/* ===== CHROME SPHERE (abstract 3D) ===== */
+.chrome-sphere {
+  width: 120px;
+  height: 120px;
+  margin: 1.5rem auto 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #fff, #b0b0b0 40%, #555 80%, #222);
+  box-shadow: 
+    0 0 30px rgba(255, 123, 181, 0.5),
+    inset -10px -10px 30px rgba(0,0,0,0.6),
+    inset 10px 10px 30px rgba(255,255,255,0.7);
+  border: 2px solid #888;
+  animation: floatSphere 6s ease-in-out infinite;
+}
+@keyframes floatSphere {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(5deg); }
+}
+
+/* ===== TYPOGRAPHY ===== */
+.pixel-title {
+  font-family: var(--font-pixel);
+  font-size: 1.8rem;
+  color: var(--pink);
+  text-shadow: 4px 4px 0 var(--lime);
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+}
+.manifesto {
+  font-size: 1.3rem;
+  max-width: 700px;
+  margin: 0 auto 0.5rem;
+}
+.highlight {
+  background: var(--lime);
+  padding: 0.2rem 0.8rem;
+  display: inline-block;
+  color: var(--dark);
+  font-weight: bold;
+  border: 2px solid var(--dark);
+}
+
+/* ===== SERVICES GRID ===== */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto 2rem;
+}
+.service-card .window-body {
+  padding: 1.2rem 1.5rem;
+}
+.service-desc {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.8rem;
+}
+.included {
+  background: #d9fb5f33;
+  border-left: 6px solid var(--lime);
+  padding: 0.4rem 0.8rem;
+  margin: 0.5rem 0;
+}
+.excluded {
+  background: #ff7bb533;
+  border-left: 6px solid var(--pink);
+  padding: 0.4rem 0.8rem;
+  margin: 0.5rem 0;
+}
+
+/* ===== FORM ===== */
+.form-window .window-body {
+  background: #f9f9f9;
+}
+form label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: bold;
+  font-size: 1rem;
+}
+form input, form select, form textarea {
+  width: 100%;
+  padding: 0.6rem;
+  margin-top: 0.2rem;
+  border: 3px inset #ccc;
+  background: #fff;
+  font-family: var(--font-terminal);
+  font-size: 1rem;
+}
+form input:focus, form select:focus, form textarea:focus {
+  outline: 2px solid var(--pink);
+  border-color: var(--pink);
+}
+
+.pixel-btn {
+  background: var(--lime);
+  border: 4px outset #fff;
+  padding: 0.8rem 2rem;
+  font-family: var(--font-pixel);
+  font-size: 0.9rem;
+  color: var(--dark);
+  margin-top: 1.5rem;
+  cursor: pointer;
+  transition: 0.1s linear;
+  box-shadow: 4px 4px 0 var(--pink);
+}
+.pixel-btn:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--pink);
+}
+.pixel-btn:active {
+  transform: translate(4px, 4px);
+  box-shadow: 0px 0px 0 var(--pink);
+  border-style: inset;
+}
+
+#form-status {
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+/* ===== FOOTER ===== */
+.footer-window .window-body {
+  text-align: center;
+  background: var(--dark);
+  color: var(--white);
+  border-color: #333;
+}
+.footer-window .window-body p {
+  margin: 0.2rem 0;
+}
+
+/* ===== MODAL OVERLAY ===== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  backdrop-filter: blur(4px);
+  padding: 1rem;
+}
+.modal-window {
+  max-width: 480px;
+  width: 100%;
+  animation: floatSphere 0.4s ease-out;
+  box-shadow: 0 0 40px rgba(255, 123, 181, 0.4);
+}
+.modal-window .window-body {
+  background: #fefefe;
+  text-align: center;
+}
+
+/* ===== LGBTQIA+ STICKER ===== */
+.sticker {
+  display: inline-block;
+  background: linear-gradient(135deg, #ff7bb5 30%, #d9fb5f 70%);
+  padding: 0.6rem 1.2rem;
+  border: 4px solid #1a1a1a;
+  transform: rotate(-4deg);
+  font-family: var(--font-pixel);
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: #1a1a1a;
+  text-shadow: 2px 2px 0 #ffffff;
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.25);
+  margin-top: 1.5rem;
+  transition: transform 0.2s ease;
+}
+.sticker:hover {
+  transform: rotate(0deg) scale(1.02);
+}
+.sticker-text {
+  display: block;
+  text-align: center;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 700px) {
+  .pixel-title { font-size: 1.2rem; }
+  .window-body { padding: 1rem; }
+  .manifesto { font-size: 1rem; }
+  .services-grid { grid-template-columns: 1fr; }
+}
