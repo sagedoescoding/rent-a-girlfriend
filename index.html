@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rent-a-Presence ˚ʚ♡ɞ˚</title>
+  <!-- Y2K Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/style.css" />
+  <link rel="icon" href="/favicon.svg" />
+</head>
+<body>
+
+  <!-- ===== SCANLINE / TV OVERLAY ===== -->
+  <div id="tv-overlay"></div>
+
+  <!-- ===== GLITTER CONTAINER ===== -->
+  <div id="glitter-container"></div>
+
+  <!-- ===== MAIN WRAPPER ===== -->
+  <main class="wrapper">
+
+    <!-- HERO SECTION -->
+    <section class="window hero-window">
+      <div class="title-bar">
+        <span>✧ ˚ · .  RENT-A-PRESENCE  . · ˚ ✧</span>
+        <div class="window-controls">
+          <span class="min">─</span>
+          <span class="max">☐</span>
+          <span class="close">✕</span>
+        </div>
+      </div>
+      <div class="window-body">
+        <div class="hero-content">
+          <h1 class="pixel-title">Tired of feeling unseen?</h1>
+          <p class="manifesto">
+            Loneliness isn’t a weakness — it’s a signal. <br />
+            You deserve time with someone who is <em>committed</em> to your happiness,
+            without expecting your status, your body, or your energy in return.
+          </p>
+          <p class="manifesto highlight">
+            ✦ Spend a few hours in genuine, platonic, sacred presence. ✦
+          </p>
+          <div class="chrome-sphere"></div> <!-- abstract 3D sphere -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section class="services-grid">
+
+      <!-- SERVICE 1: Girlfriend -->
+      <div class="window service-card">
+        <div class="title-bar"><span>♡ Rent-a-Girlfriend</span></div>
+        <div class="window-body">
+          <p class="service-desc">For weddings, work parties, or any event where you need a supportive “plus-one”.</p>
+          <div class="included"><strong>✓ Includes:</strong> Active listening, hand-holding, social charm, photo-worthy smiles.</div>
+          <div class="excluded"><strong>✕ Not included:</strong> Kissing, intimacy, overnights, or any romantic expectations.</div>
+        </div>
+      </div>
+
+      <!-- SERVICE 2: Bestie -->
+      <div class="window service-card">
+        <div class="title-bar"><span>🌸 Rent-a-Girl-Bestie</span></div>
+        <div class="window-body">
+          <p class="service-desc">Shopping trips, brunch dates, or just venting about life with a hype-woman by your side.</p>
+          <div class="included"><strong>✓ Includes:</strong> Honest advice, giggles, public outings, emotional cheerleading.</div>
+          <div class="excluded"><strong>✕ Not included:</strong> Gossiping about your friends, or unsolicited life coaching.</div>
+        </div>
+      </div>
+
+      <!-- SERVICE 3: Cuddler -->
+      <div class="window service-card">
+        <div class="title-bar"><span>☁️ Rent-a-Cuddler</span></div>
+        <div class="window-body">
+          <p class="service-desc">Platonic touch — movie marathons, deep talks, and cozy comfort without a single string attached.</p>
+          <div class="included"><strong>✓ Includes:</strong> Cuddling, hugging, stroking your hair, holding space for you to cry.</div>
+          <div class="excluded"><strong>✕ Not included:</strong> Sexual activity, kissing, or anything beyond PG-rated affection.</div>
+        </div>
+      </div>
+
+      <!-- SERVICE 4: Sister -->
+      <div class="window service-card">
+        <div class="title-bar"><span>🌿 Rent-a-Sister</span></div>
+        <div class="window-body">
+          <p class="service-desc">Need a big-sis vibe? Mentorship, life advice, or simply the warmth of maternal energy when you’re far from home.</p>
+          <div class="included"><strong>✓ Includes:</strong> Life coaching, cooking/baking together, comforting hugs, listening ears.</div>
+          <div class="excluded"><strong>✕ Not included:</strong> Judgement, criticism, or prying into your private life.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ENQUIRY FORM -->
+    <section class="window form-window">
+      <div class="title-bar"><span>✉️ Send your enquiry</span></div>
+      <div class="window-body">
+        <p class="form-subtext">Tell us which service you need, when, and how we can make you feel less alone.</p>
+        <!-- REPLACE 'YOUR_FORM_ID' with your actual Formspree endpoint -->
+        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" id="enquiry-form">
+          <label>Your Name <input type="text" name="name" required /></label>
+          <label>Email <input type="email" name="email" required /></label>
+          <label>Service
+            <select name="service" required>
+              <option value="">— select —</option>
+              <option value="girlfriend">Rent-a-Girlfriend</option>
+              <option value="bestie">Rent-a-Girl-Bestie</option>
+              <option value="cuddler">Rent-a-Cuddler</option>
+              <option value="sister">Rent-a-Sister</option>
+            </select>
+          </label>
+          <label>Preferred Date &amp; Time <input type="datetime-local" name="datetime" required /></label>
+          <label>Your message
+            <textarea name="message" rows="4" placeholder="Tell us what you're looking for..."></textarea>
+          </label>
+          <button type="submit" class="pixel-btn">✨ Send enquiry ✨</button>
+        </form>
+        <div id="form-status"></div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="window footer-window">
+      <div class="window-body">
+        <p>✦ ˚ · .  Because presence is the greatest gift.  . · ˚ ✦</p>
+        <p style="font-size:0.7rem; opacity:0.7;">© 2026 — made with <span style="color:#ff7bb5;">♥</span> and zero judgement</p>
+      </div>
+    </footer>
+  </main>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
