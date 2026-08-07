@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rent-a-Presence ˚ʚ♡ɞ˚</title>
+  <!-- Y2K Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet" />
+  <link rel="icon" href="/rent-a-girlfriend/favicon.svg" />
+  <script type="module" crossorigin src="/rent-a-girlfriend/assets/index-_C7Q-N23.js"></script>
+  <link rel="stylesheet" crossorigin href="/rent-a-girlfriend/assets/index-Drqtj2cg.css">
+</head>
+<body>
+
+  <!-- ===== SCANLINE / TV OVERLAY ===== -->
+  <div id="tv-overlay"></div>
+
+  <!-- ===== GLITTER CONTAINER ===== -->
+  <div id="glitter-container"></div>
+
+  <!-- ===== MAIN WRAPPER ===== -->
+  <main class="wrapper">
+
+    <!-- HERO SECTION -->
+    <section class="window hero-window">
+      <div class="title-bar">
+        <span>✧ ˚ · .  RENT-A-PRESENCE  . · ˚ ✧</span>
+        <div class="window-controls">
+          <span class="min">─</span>
+          <span class="max">☐</span>
+          <span class="close">✕</span>
+        </div>
+      </div>
+      <div class="window-body">
+        <div class="hero-content">
+          <h1 class="pixel-title">Tired of feeling unseen?</h1>
+          <p class="manifesto">
+            Loneliness isn’t a weakness — it’s a signal. <br />
+            You deserve time with someone who is <em>committed</em> to your bliss,
+            without all the pressures and confusions of modern day relationships and friendships.
+          </p>
+          <p class="manifesto highlight">
+            ✦ Spend a few hours in genuine, platonic, divine companionship. ✦
+          </p>
+            <div class="sticker">
+            <span class="sticker-text">LGBTQIA+<br />WELCOME</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section class="services-grid">
+
+      <!-- SERVICE 1: Girlfriend -->
+      <div class="window service-card">
+        <div class="title-bar"><span>♡ Rent-a-Girlfriend</span></div>
+        <div class="window-body">
+          <p class="service-desc">For weddings, work parties, or any event where you need a supportive “plus-one”.</p>
+          <div class="included"><strong>✓ Includes:</strong> Active listening, hand-holding, social charm, photo-worthy smiles.</div>
+          <div class="excluded"><strong>✕ Not included:</strong> Kissing, intimacy, overnights, or any romantic expectations.</div>
+        </div>
+      </div>
+
+      <!-- SERVICE 2: Bestie -->
+      <div class="window service-card">
+        <div class="title-bar"><span>🌸 Rent-a-Girl-Bestie</span></div>
+        <div class="window-body">
+          <p class="service-desc">Shopping trips, brunch dates, or just venting about life with a hype-woman by your side.</p>
+          <div class="included"><strong>✓ Includes:</strong> Honest advice, giggles, public outings, emotional cheerleading.</div>
+          <div class="excluded"><strong>✕ Not included:</strong> Gossiping about your friends, or unsolicited life coaching.</div>
+        </div>
+      </div>
+
+      <!-- SERVICE 3: Cuddler -->
+      <div class="window service-card">
+        <div class="title-bar"><span>☁️ Rent-a-Cuddler</span></div>
+        <div class="window-body">
+          <p class="service-desc">Platonic touch — movie marathons, deep talks, and cozy comfort.</p>
+          <div class="included"><strong>✓ Includes:</strong> Cuddling, hugging, stroking your hair, holding space for you to cry.</div>
+          <div class="excluded"><strong>✕ Not included:</strong> Kissing, intimacy or anything beyond PG-rated affection.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ENQUIRY FORM -->
+    <section class="window form-window">
+      <div class="title-bar"><span>✉️ Send your enquiry</span></div>
+      <div class="window-body">
+        <p class="form-subtext">Tell us which service you need, when, and how we can make you feel less alone.</p>
+        <!-- REPLACE 'YOUR_FORM_ID' with your actual Formspree endpoint -->
+        <form action="https://formspree.io/f/xdenojwz" method="POST" id="enquiry-form">
+          <label>Your Name <input type="text" name="name" required /></label>
+          <label>Email <input type="email" name="email" required /></label>
+          <label>Service
+            <select name="service" required>
+              <option value="">— select —</option>
+              <option value="girlfriend">Rent-a-Girlfriend</option>
+              <option value="bestie">Rent-a-Girl-Bestie</option>
+              <option value="cuddler">Rent-a-Cuddler</option>
+            </select>
+          </label>
+          <label>Preferred Date &amp; Time <input type="datetime-local" name="datetime" required /></label>
+          <label>Your message
+            <textarea name="message" rows="4" placeholder="Tell us what you're looking for..."></textarea>
+          </label>
+          <button type="submit" class="pixel-btn">✨ Send enquiry ✨</button>
+        </form>
+        <div id="form-status"></div>
+      </div>
+    </section>  
+
+    <!-- FOOTER -->
+    <footer class="window footer-window">
+      <div class="window-body">
+        <p>✦ ˚ · .  Because presence is the greatest gift.  . · ˚ ✦</p>
+        <p style="font-size:0.7rem; opacity:0.7;">© 2026 — made with <span style="color:#ff7bb5;">♥</span> and zero judgement</p>
+      </div>
+    </footer>
+  </main>
+
+
+  <!-- ===== SUCCESS POP-UP (Modal) ===== -->
+  <div id="success-modal" class="modal-overlay" style="display: none;">
+    <div class="window modal-window">
+      <div class="title-bar">
+        <span>✧ Message received! ✧</span>
+        <div class="window-controls">
+          <span class="close" id="close-modal-btn">✕</span>
+        </div>
+      </div>
+      <div class="window-body">
+        <p style="font-size: 1.6rem; margin-bottom: 0.5rem;">Enquiry sent!</p>
+        <p style="font-size: 1.2rem;">We’ll be in touch within 24 hours. ✦</p>
+        <p style="margin-top: 1.5rem; font-size: 0.9rem; opacity: 0.8;">
+          Until then, remember — you are seen, and you matter.
+        </p>
+        <button id="close-modal-btn-bottom" class="pixel-btn" style="margin-top: 1.5rem;">
+          ✕ Close
+        </button>
+      </div>
+    </div>
+  </div>   
+</body>
+</html>

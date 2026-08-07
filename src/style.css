@@ -1,3 +1,14 @@
+/* ===== CUSTOM Y2K CURSOR ===== */
+/* Sparkly star cursor - hot spot is in the center (16, 16) */
+body {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><polygon points="16,2 20,12 30,12 22,18 26,28 16,22 6,28 10,18 2,12 12,12" fill="%23d9fb5f" stroke="%23ff7bb5" stroke-width="1.5" /></svg>') 16 16, auto;
+}
+
+/* Bonus: Change cursor on buttons and links to a pixel hand */
+a, button, .pixel-btn, .window-controls span, .close, .min, .max {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><path d="M10,6 L10,18 L6,18 L6,6 L10,6 M14,4 L14,20 L18,20 L18,4 L14,4 M22,6 L22,18 L26,18 L26,6 L22,6" fill="%23ff7bb5" stroke="%23d9fb5f" stroke-width="1.5"/></svg>') 8 8, pointer;
+}
+
 /* ===== RESET & BASE ===== */
 * {
   margin: 0;
