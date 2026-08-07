@@ -425,4 +425,15 @@ form input:focus, form select:focus, form textarea:focus {
     font-size: 0.9rem;
     padding: 0.5rem;
   }
+
+  /* Glitter overrides for mobile */
+  .glitter-piece {
+    animation-duration: 5s !important; /* Slower twinkle on small screens */
+    animation-iteration-count: infinite;
+    opacity: 0.5 !important; /* Softer, less distracting */
+  }
+
+  #glitter-container {
+    opacity: 0.7; /* Fade the entire glitter layer slightly */
+  }  
 }
