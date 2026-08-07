@@ -2,11 +2,18 @@
 // ===== GENERATE GLITTER =====
 function spawnGlitter() {
   const container = document.getElementById('glitter-container');
-  const count = 80;
+  const isMobile = window.innerWidth < 768;
+
+  // Mobile: fewer, smaller, softer pieces
+  const count = isMobile ? 30 : 80;
+  const sizeMin = isMobile ? 2 : 4;
+  const sizeMax = isMobile ? 6 : 12;
+  const opacityBase = isMobile ? 0.4 : 1;
+
   for (let i = 0; i < count; i++) {
     const piece = document.createElement('div');
     piece.className = 'glitter-piece';
-    const size = 4 + Math.random() * 8;
+    const size = sizeMin + Math.random() * (sizeMax - sizeMin);
     piece.style.width = size + 'px';
     piece.style.height = size + 'px';
     piece.style.left = Math.random() * 100 + '%';
@@ -14,6 +21,7 @@ function spawnGlitter() {
     piece.style.background = Math.random() > 0.6 ? 'var(--lime)' : 'var(--pink)';
     piece.style.animationDelay = (Math.random() * 5) + 's';
     piece.style.animationDuration = (2 + Math.random() * 3) + 's';
+    piece.style.opacity = opacityBase;
     container.appendChild(piece);
   }
 }
