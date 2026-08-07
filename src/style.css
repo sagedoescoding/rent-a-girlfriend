@@ -435,5 +435,42 @@ form input:focus, form select:focus, form textarea:focus {
 
   #glitter-container {
     opacity: 0.7; /* Fade the entire glitter layer slightly */
-  }  
+  } 
+
+  /* ===== RESPONSIVE TITLE BARS ===== */
+  .title-bar {
+    font-size: 0.5rem; /* Smaller text on mobile */
+    padding: 0.3rem 0.6rem;
+    flex-wrap: nowrap; /* Prevent wrapping */
+    gap: 4px;
+  }
+
+  .title-bar span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Adds "..." if text is too long */
+    flex: 1;
+    min-width: 0;
+  }
+
+  .window-controls {
+    display: flex;
+    gap: 2px;
+    flex-shrink: 0; /* Prevent controls from shrinking */
+  }
+
+  .window-controls span {
+    width: 18px;
+    height: 18px;
+    font-size: 0.6rem;
+    line-height: 18px;
+    border-width: 2px;
+    margin-left: 2px;
+  }
+
+  .window-controls .close {
+    background: #ff7bb5;
+    color: #fff;
+  }
+
 }
